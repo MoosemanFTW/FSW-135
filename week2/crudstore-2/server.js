@@ -6,15 +6,11 @@ const mongoose = require('mongoose')
 app.use(express.json())
 app.use(morgan('dev'))
 
-mongoose.connect('mongodb://localhost:27017/TBD',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  },
-  () => console.log("Connected to the DB")
-) 
+main().catch(err => console.log(err));
+async function main() {
+  await mongoose.connect('mongodb://localhost:27017/FSW135');
+  console.log("Connected to the DB")
+}
 
 app.use('/store', require('./routes/storeRouter.js'))
 
