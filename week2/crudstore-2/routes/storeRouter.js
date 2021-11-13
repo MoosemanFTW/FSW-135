@@ -14,8 +14,8 @@ storeRouter.get('/', (req, res, next) =>{
 });
 
 //get one
-storeRouter.get('/', (req, res, next) =>{
-  Item.findOne({_id: req.params.itemId}, (err, OneItem) =>{
+storeRouter.get('/:itemId', (req, res, next) =>{
+  Inventory.findOne({_id: req.params.itemId}, (err, OneItem) =>{
     if(err){
       res.status(500)
       return next(err)
@@ -25,7 +25,7 @@ storeRouter.get('/', (req, res, next) =>{
 })
 
 storeRouter.post('/', (req, res, next) =>{
-  const newItem = new Item(req.body)
+  const newItem = new Inventory(req.body)
   newItem.save((err, savedItem) =>{
     if(err){
       res.status(500)
@@ -35,8 +35,8 @@ storeRouter.post('/', (req, res, next) =>{
   })
 })
 
-storeRouter.delete('/', (req, res, next) =>{
-  Item.findOneAndDelete({_id: req.params.itemId}, (err, deletedItem) =>{
+storeRouter.delete('/:itemId', (req, res, next) =>{
+  Inventory.findOneAndDelete({_id: req.params.itemId}, (err, deletedItem) =>{
     if(err){
       res.status(500)
       return next(err)
@@ -45,9 +45,9 @@ storeRouter.delete('/', (req, res, next) =>{
   })
 })
 
-storeRouter.put('/', (req, res, next) =>{
-  Item.findOneAndUpdate(
-      {_id: req.params.ItemId},
+storeRouter.put('/:itemId', (req, res, next) =>{
+  Inventory.findOneAndUpdate(
+      {_id: req.params.itemId},
       req.body,
       {new: true},
       (err,updatedItem) =>{

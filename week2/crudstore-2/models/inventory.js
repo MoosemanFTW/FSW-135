@@ -17,4 +17,4 @@ const invSchema = new schema({
     }
 })
 
-module.exports = mongoose.model('inventory', invSchema)
+module.exports = mongoose.model('Item', invSchema)
