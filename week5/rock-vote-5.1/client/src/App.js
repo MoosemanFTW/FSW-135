@@ -1,3 +1,4 @@
+import React from 'react';
 import { useContext } from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom'
 import Auth from './components/Auth';
