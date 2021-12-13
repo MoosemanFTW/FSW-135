@@ -10,16 +10,6 @@ const issueSchema = new Schema ({
         type: String,
         required: true
     },
-
-    // upvotes: {
-    //     type: Number,
-    //     default: 0
-    // },
-    // downvotes: {
-    //     type: Number,
-    //     default: 0
-    // },
-    
     votes: {
         type: Number,
         default: 0

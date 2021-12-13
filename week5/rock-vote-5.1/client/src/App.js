@@ -8,11 +8,11 @@ import Profile from './components/Profile';
 
 function App() {
 
-  const { token } = useContext(UserContext)
+  const { token, logout } = useContext(UserContext)
 
   return (
     <div>
-      {<Navbar/>}
+      {<Navbar logout={logout}/>}
       <Switch>
         <Route
         exact path = '/'
